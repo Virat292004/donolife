@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Matching</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family:"Montserrat", sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+        .red{
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Blood Donation Matching</h1>
+        <h2>Recipients</h2>
+        <form id="matchForm">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Blood Group</th>
+                        <th>Units Required</th>
+                    </tr>
+                </thead>
+                <tbody id="recipientsTable">
+                    <!-- Recipients will be populated here -->
+                </tbody>
+            </table>
+            <button type="button" onclick="findMatches()">Find Matches</button>
+        </form>
+
+        <h2>Matches</h2>
+        <table id="matchesTable">
+            <thead>
+                <tr>
+                    <th>Recipient</th>
+                    <th>Donor</th>
+                    <th>Units</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Matches will be populated here -->
+            </tbody>
+        </table>
+     
+    </div>
+    <script>
+        // Example recipients data for demonstration
+        const recipients = [
+            { name: "Recipient1", blood_group: "A+", units: 2 },
+            { name: "Recipient2", blood_group: "O-", units: 1 },
+            { name: "Recipient3", blood_group: "B+", units: 4 }
+        ];
+
+        // Populate recipients table
+        const recipientsTable = document.getElementById('recipientsTable');
+        recipients.forEach(r => {
+            const row = `<tr>
+                <td>${r.name}</td>
+                <td>${r.blood_group}</td>
+                <td>${r.units}</td>
+            </tr>`;
+            recipientsTable.innerHTML += row;
+        });
+
+        function findMatches() {
+            fetch('/match', {
+                method: 'POST',
+                headers: { 'Content-Type': "application/json" },
+                body: JSON.stringify({ recipients })
+            })
+                .then(response => response.json())
+                .then(matches => {
+                    const matchesTable = document.getElementById('matchesTable').getElementsByTagName('tbody')[0];
+                    matchesTable.innerHTML = ''; // Clear previous matches
+                    matches.forEach(match => {
+                        const row = `<tr>
+                        <td>${match.recipient}</td>
+                        <td>${match.donor}</td>
+                        <td>${match.units}</td>
+                    </tr>`;
+                        matchesTable.innerHTML += row;
+                    });
+                });
+        }
+    </script>
+</body>
+
+</html>
