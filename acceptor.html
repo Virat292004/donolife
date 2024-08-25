@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipient Data Form</title>
+    <link rel="stylesheet" href="../static/acceptor-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Recipient Data Form</h1>
+
+        <form id="recipientForm" class="form-grid" method="post">
+            <!-- Personal Identification -->
+            <fieldset>
+                <legend>Personal Identification</legend>
+                <label for="recipientName">Full Name:</label>
+                <input type="text" id="recipientName" name="recipientName" required>
+
+                <label for="recipientDob">Date of Birth:</label>
+                <input type="date" id="recipientDob" name="recipientDob" required>
+
+                <label for="recipientContact">Contact Information:</label>
+                <input type="tel" id="recipientPhone" name="recipientPhone" placeholder="Phone" required>
+                <input type="email" id="recipientEmail" name="recipientEmail" placeholder="Email" required>
+
+                <label for="recipientAddress">Address:</label>
+                <textarea id="recipientAddress" name="recipientAddress" rows="3" required></textarea>
+            </fieldset>
+
+            <!-- Medical Information -->
+            <fieldset>
+                <legend>Medical Information</legend>
+                <label for="recipientDiagnosis">Diagnosis and Treatment Details:</label>
+                <textarea id="recipientDiagnosis" name="recipientDiagnosis" rows="3" required></textarea>
+
+                <label for="recipientBloodType">Blood Type and Rh Factor:</label>
+                <select id="recipientBloodType" name="recipientBloodType" required>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+
+                <label for="recipientMedications">Current Medications:</label>
+                <textarea id="recipientMedications" name="recipientMedications" rows="3"></textarea>
+
+                <label for="recipientAllergies">Allergies:</label>
+                <textarea id="recipientAllergies" name="recipientAllergies" rows="3"></textarea>
+
+                <label for="recipientTransfusions">Previous Transfusion History:</label>
+                <textarea id="recipientTransfusions" name="recipientTransfusions" rows="3"></textarea>
+            </fieldset>
+
+            <!-- Health Status -->
+            <fieldset>
+                <legend>Health Status</legend>
+                <label for="recipientVitalSigns">Vital Signs (e.g., blood pressure, temperature):</label>
+                <textarea id="recipientVitalSigns" name="recipientVitalSigns" rows="3"></textarea>
+
+                <label for="recipientLabTests">Lab Test Results (e.g., hemoglobin levels, cross-matching results):</label>
+                <textarea id="recipientLabTests" name="recipientLabTests" rows="3"></textarea>
+            </fieldset>
+
+            <!-- Consent -->
+            <fieldset>
+                <legend>Consent</legend>
+                <label>
+                    <input type="checkbox" name="recipientConsentReceive" required> I agree to receive blood
+                </label>
+                <label>
+                    <input type="checkbox" name="recipientConsentMedical" required> I consent to any related medical procedures or testing
+                </label>
+            </fieldset>
+
+            <!-- Emergency Contact Information -->
+            <fieldset>
+                <legend>Emergency Contact Information</legend>
+                <label for="recipientEmergencyContact">Emergency Contact Name:</label>
+                <input type="text" id="recipientEmergencyContact" name="recipientEmergencyContact" required>
+
+                <label for="recipientEmergencyPhone">Emergency Contact Phone:</label>
+                <input type="tel" id="recipientEmergencyPhone" name="recipientEmergencyPhone" required>
+            </fieldset>
+
+            <!-- Insurance Information -->
+            <fieldset>
+                <legend>Insurance Information (if applicable)</legend>
+                <label for="recipientInsurance">Insurance Details:</label>
+                <textarea id="recipientInsurance" name="recipientInsurance" rows="3"></textarea>
+            </fieldset>
+
+            <button type="submit">Submit Recipient Data</button>
+        </form>
+    </div>
+</body>
+</html>

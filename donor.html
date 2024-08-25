@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Data Form</title>
+    <link rel="stylesheet" href="../static/donor-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Donor Data Form</h1>
+
+        <form id="donorForm" class="form-grid" action="/donor" method="POST">
+            <!-- Personal Identification -->
+            <fieldset>
+                <legend>Personal Identification</legend>
+                <label for="donorName">Full Name:</label>
+                <input type="text" id="donorName" name="donorName" required>
+    
+                <label for="donorDob">Date of Birth:</label>
+                <input type="date" id="donorDob" name="donorDob" required>
+    
+                <label for="donorContact">Contact Information:</label>
+                <input type="tel" id="donorPhone" name="donorPhone" placeholder="Phone" required>
+                <input type="email" id="donorEmail" name="donorEmail" placeholder="Email" required>
+    
+                <label for="donorAddress">Address:</label>
+                <textarea id="donorAddress" name="donorAddress" rows="3" required></textarea>
+            </fieldset>
+    
+            <!-- Medical History -->
+            <fieldset>
+                <legend>Medical History</legend>
+                <label for="donorHealthStatus">Current Health Status:</label>
+                <textarea id="donorHealthStatus" name="donorHealthStatus" rows="3" required></textarea>
+    
+                <label for="donorMedicalConditions">Past Medical Conditions:</label>
+                <textarea id="donorMedicalConditions" name="donorMedicalConditions" rows="3" required></textarea>
+    
+                <label for="donorMedications">Medications Currently Being Taken:</label>
+                <textarea id="donorMedications" name="donorMedications" rows="3" required></textarea>
+    
+                <label for="donorAllergies">Allergies:</label>
+                <textarea id="donorAllergies" name="donorAllergies" rows="3"></textarea>
+    
+                <label for="donorSurgeries">History of Surgeries or Major Illnesses:</label>
+                <textarea id="donorSurgeries" name="donorSurgeries" rows="3"></textarea>
+            </fieldset>
+    
+            <!-- Lifestyle Information -->
+            <fieldset>
+                <legend>Lifestyle Information</legend>
+                <label for="donorTravel">Recent Travel History:</label>
+                <textarea id="donorTravel" name="donorTravel" rows="3"></textarea>
+    
+                <label for="donorRiskBehaviors">High-Risk Behaviors:</label>
+                <textarea id="donorRiskBehaviors" name="donorRiskBehaviors" rows="3"></textarea>
+    
+                <label for="donorOccupation">Occupation:</label>
+                <input type="text" id="donorOccupation" name="donorOccupation">
+            </fieldset>
+    
+            <!-- Blood Type -->
+            <fieldset>
+                <legend>Blood Type</legend>
+                <label for="donorBloodType">Donor’s Blood Type:</label>
+                <select id="donorBloodType" name="donorBloodType" required>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+            </fieldset>
+    
+            <!-- Consent -->
+            <fieldset>
+                <legend>Consent</legend>
+                <label>
+                    <input type="checkbox" name="donorConsentDonate" required> I agree to donate blood
+                </label>
+                <label>
+                    <input type="checkbox" name="donorConsentTest" required> I consent to test my blood for infections (e.g., HIV, Hepatitis B/C)
+                </label>
+            </fieldset>
+    
+            <!-- Health Screening -->
+            <fieldset>
+                <legend>Health Screening</legend>
+                <label for="donorVitalSigns">Vital Signs (e.g., blood pressure, temperature):</label>
+                <textarea id="donorVitalSigns" name="donorVitalSigns" rows="3"></textarea>
+    
+                <label for="donorHemoglobin">Hemoglobin Levels:</label>
+                <input type="text" id="donorHemoglobin" name="donorHemoglobin">
+            </fieldset>
+    
+            <!-- Previous Donation History -->
+            <fieldset>
+                <legend>Previous Donation History</legend>
+                <label for="donorPastDonations">Record of Past Donations:</label>
+                <textarea id="donorPastDonations" name="donorPastDonations" rows="3"></textarea>
+    
+                <label for="donorReactions">Any Previous Reactions to Blood Donation:</label>
+                <textarea id="donorReactions" name="donorReactions" rows="3"></textarea>
+            </fieldset>
+    
+            <button type="submit">Submit Donor Data</button>
+        
+    
+        </form>
+    </div>
+</body>
+</html>
